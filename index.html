@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>♠️ Blackjack ♥️</h1>
+            <div class="score-board">
+                <div class="score">
+                    <span>Player Wins: <span id="playerWins">0</span></span>
+                    <span>Dealer Wins: <span id="dealerWins">0</span></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <!-- Dealer Section -->
+            <section class="dealer-section">
+                <h2>Dealer</h2>
+                <div class="hand-info">
+                    <span class="hand-value" id="dealerValue">0</span>
+                </div>
+                <div class="cards-container" id="dealerCards">
+                    <!-- Dealer cards will be added here -->
+                </div>
+            </section>
+
+            <!-- Game Controls -->
+            <section class="controls">
+                <div class="game-status" id="gameStatus">Click "New Game" to start!</div>
+                <div class="buttons">
+                    <button id="newGameBtn" class="btn btn-primary">New Game</button>
+                    <button id="hitBtn" class="btn btn-secondary" disabled>Hit</button>
+                    <button id="standBtn" class="btn btn-secondary" disabled>Stand</button>
+                    <button id="resetBtn" class="btn btn-danger">Reset Score</button>
+                </div>
+            </section>
+
+            <!-- Player Section -->
+            <section class="player-section">
+                <h2>Player</h2>
+                <div class="hand-info">
+                    <span class="hand-value" id="playerValue">0</span>
+                </div>
+                <div class="cards-container" id="playerCards">
+                    <!-- Player cards will be added here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Rules Modal -->
+        <div id="rulesModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Blackjack Rules</h2>
+                <ul>
+                    <li>Get as close to 21 as possible without going over</li>
+                    <li>Face cards (J, Q, K) are worth 10 points</li>
+                    <li>Aces are worth 1 or 11 (whichever is better)</li>
+                    <li>Dealer must hit on 16 and stand on 17</li>
+                    <li>Blackjack (21 with first 2 cards) beats regular 21</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <button id="rulesBtn" class="btn btn-info">Rules</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
