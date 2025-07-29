@@ -3,6 +3,15 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Force HTTPS in production and handle redirects
+app.use((req, res, next) => {
+    // Force HTTPS in production
+    if (req.header('x-forwarded-proto') !== 'https' && process.env.NODE_ENV === 'production') {
+        return res.redirect(301, `https://${req.header('host')}${req.url}`);
+    }
+    next();
+});
+
 // Serve static files from the current directory
 app.use(express.static(__dirname));
 
